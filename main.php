@@ -9,6 +9,11 @@
 </head>
 <body>
 	<div class="container" style="margin-top: 100px;">
+		<div class="text-center mb-80">
+			<h4 class="section-title text-uppercase">
+				Papeleta de votación
+			</h4>
+		</div>
 		<div class="row">
 			<div class="col s12 m6">
 				<div class="team-wrapper">
