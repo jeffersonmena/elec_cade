@@ -104,11 +104,6 @@ $( '#list_b' ).on( 'click', function() {
      }
 });  
 
-
-   // $( '#send_a' ).on( 'click', function() {
-        // Hacer algo si el checkbox ha sido seleccionado
-        // alert("Esta Seguro de su votacion a favor de la Lista A ");
-  //});
     function list_a(){ 
     $( "#votacion_a" ).submit(function( event ) {
      
@@ -119,7 +114,6 @@ $( '#list_b' ).on( 'click', function() {
           data: parametros,
            beforeSend: function(objeto){
             $("#mensaje").html("Mensaje: Cargando...");
-
             },
           success: function(datos){
           $("#mensaje").html(datos);
@@ -135,6 +129,4 @@ $( '#list_b' ).on( 'click', function() {
 }else{
   header("location: index.php");
 }
-
-
- ?>
+?>

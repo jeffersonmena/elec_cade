@@ -6,10 +6,8 @@ if($_POST){
 }else{
 	$op=$_GET['op'];
 }
-
 switch ($op) {
-	case 'ingresar':
-			
+	case 'ingresar':			
 			$sql=mysqli_query($con,"SELECT * FROM estudiantes WHERE codigo='$co'");
 			$row=mysqli_fetch_assoc($sql); 
 				$nom=$row['estudiante'];
@@ -23,8 +21,7 @@ switch ($op) {
 		break;
 	
 	case 'votacion':
-		$sql=mysqli_query($con,"");
-
+		$sql=mysqli_query($con,"SELECT * FROM votos WHERE");
 		break;
 	case 'exit':
 				session_start();
@@ -32,7 +29,4 @@ switch ($op) {
 				header("location: index.php");
 		break;		
 }
-
-
-
 ?>
