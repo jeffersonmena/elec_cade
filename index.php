@@ -1,8 +1,6 @@
-<?php 
-
-?>
 <!DOCTYPE html>
 <html>
+<!--SELECT estudiante, curso FROM estudiantes as e, cursos as c WHERE e.id_curso=c.id_curso-->
 <head>
 	<title>login</title>
 	<?php include 'includes/link.html'; ?>
@@ -21,12 +19,13 @@
         </div>
       </div>        
         <div class="row">
-          <form>
+          <form action="validar.php" method="POST">
             <div class="col s12 m4 l8">
                 <div class="input-field ">
                   <i class="material-icons prefix">account_circle</i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">Cedula</label>
+                  <input type="hidden" name="op" value="ingresar">
+                  <input id="icon_prefix" type="text" class="validate" name="code">
+                  <label for="icon_prefix">Codigo</label>
                 </div>              
             </div>
             <div class="col s12 m4 l2">
