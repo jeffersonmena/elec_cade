@@ -146,9 +146,37 @@
                                         <div id="invoice-line" class="center-align"><canvas width="223" height="25" style="display: inline-block; width: 223px; height: 25px; vertical-align: top;"></canvas></div>
                                     </div>
                                 </div>
-                            </div>                        
+                            </div> 
+                            <div class="col s12 m6 l3">
+                                <div class="card">
+                                    <div class="card-content #0288d1 light-blue darken-2 white-text">
+                                        <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i> Fecha y hora actual</p>
+                                        <h4 class="card-stats-number">
+                                          <?php 
+                                            echo  date("d") . " / " . date("m") . " / " . date("y")." " ;
+                                            /*date("a");
+date("A");
+date("g");
+date("h");
+date("G");
+date("H");
+*/
+                                         ?>  
+                                        </h4>
+                                        <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 0% <span class="deep-purple-text text-lighten-5">from TODAY</span>
+                                        </p>
+                                    </div>
+                                    <div class="card-action  #0277bd light-blue darken-3 darken-2">
+                                        <div id="invoice-line" class="center-align"><canvas width="223" height="25" style="display: inline-block; width: 223px; height: 25px; vertical-align: top;"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>                                                    
                       </div>                        
                     </div>
+
+
+
+
         <div class="container">
           <div class="section">
             <p class="caption"></p>

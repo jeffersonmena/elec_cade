@@ -33,7 +33,7 @@ switch ($opcion) {
 		if(empty($cod_estudiante)){
 			$errors[]="Codigo vacío";
 		}else if( empty($lista)){
-			$errors[]="Debe elegir un candidato";
+			$errors[]="Debe elegir un candidato -> Haga click en el recuadro y luego Votar";
 		}else if(!empty($lista)){
 			$existe_voto=mysqli_query($con,"SELECT cod_estudiante FROM votos WHERE cod_estudiante='$cod_estudiante'");
 			$si_existe=mysqli_num_rows($existe_voto);
@@ -43,7 +43,7 @@ switch ($opcion) {
 			}else{		
 				$test_insert = mysqli_query($con,"INSERT INTO votos (cod_estudiante,voto)values('$cod_estudiante','$list')");
 				if (!empty($test_insert)){
-						$messages[]= "Has votado por la lista: ''.$list'' ";
+						$messages[]= "Has votado por la lista: ''$list'' ";
 					}else{
 						$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 					}

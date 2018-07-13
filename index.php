@@ -25,7 +25,7 @@
                   <i class="material-icons prefix">account_circle</i>
                   <input type="hidden" name="op" value="ingresar">
                   <input id="icon_prefix" type="text" class="validate" name="code">
-                  <label for="icon_prefix">Codigo</label>
+                  <label for="icon_prefix"></label>
                 </div>              
             </div>
             <div class="col s12 m4 l2">

@@ -59,7 +59,7 @@ if ($nom && $code ) {
                         <input type="hidden" name="cod" value="<?php echo $code; ?>">
                         <input type="checkbox" class="filled-in" name="list" id="list_a" value="A" />
                         <label for="list_a">
-                          <button class="btn waves-effect waves-light" type="submit" id="send_a">votar
+                          <button class="btn waves-effect waves-light"  type="submit" id="send_a">votar
                           <i class="material-icons right">send</i>
                           </button>
                         </label>
