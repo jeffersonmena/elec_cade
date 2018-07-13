@@ -14,65 +14,43 @@ if ($nom && $code ) {
     <link rel="stylesheet" href="">
     <?php include('includes/link.html'); ?>
   </head>
-  <body>
+  <body background="img/back.jpg">
     <div class="container" style="margin-top: 100px;">
       <div class="text-center mb-80">
-        <h4 class="section-title text-uppercase">
+        <h4 class="section-title text-uppercase white-text">
+        UNIDAD EDUCATIVA "ADVENTISTA DEL ECUADOR"</h4>
+        <h4 class="section-title text-uppercase white-text">
         Papeleta de votación</h4>
         <h5>Bienvenido</h5>
         <h6><?php echo $nom." ".$code  ; ?></h6>
         <h6>
-            <div class="card-action">              
-                <form action="validar.php" method="POST" >
-                  <input class="waves-effect waves-light btn" type="submit"  value="exit" name="op">
-                </form>
-            </div>
-           <div id="mensaje">
-            <?php 
-            if (isset($_GET['data'])) {
-              $mensaje=$_GET['data'];
-              ?>
-
-
-  
-  <div class="row ">
-        <div class="col s12 m6 l12">
-          <div class="card  blue darken-1">
-            <div class="card-content black-text">
-              <span class="card-title "><h4>Notificacion</h4></span>
-              <h4><a style="color:white;"><?php echo $mensaje; ?></a></h4>
-            </div>
-            <div class="card-action">              
-                <form action="validar.php" method="POST" >
-                  <input class="waves-effect waves-light btn" type="submit"  value="exit" name="op">
-                </form>
-            </div>
-          </div>
+        <div class="card-action">              
+          <form action="validar.php" id="salir" method="POST" >
+            <input type="hidden"  name="op" value="exit"  >
+            <input type="hidden" name="codigo_e" value="<?php echo $code; ?>">
+            <button type="submit" class="waves-effect waves-light btn" >
+              EXIT
+            </button>
+           </form>
         </div>
-      </div>
-                         
-                                  <?php   
-              }
-            ?>
-          </div>                
+               
         </h6>
         
       </div>
+
       <div class="row">
         <div class="col s12 m6">
-          <div class="card">
+          <div class="card #b2ff59 light-green accent-2">
             <div class="card-image">
               <img src="img/list_A.png">
               <span class="card-title">Lista A</span>
             </div>
             <div class="card-content">              
-                       
+            <h3><a href="#">Jose Cevallos</a></h3>   
+            <span>PRESIDENTE</span>                    
             </div>
             <div class="card-action">
               <div class="team-title">
-                <h3><a href="#">Jose Cevallos</a></h3>
-                <span>Presidente</span>
-                <p>. </p>
                 <form  action="validar.php" method="POST"   id="votacion_a">
                   <p>
                     <label>
@@ -94,21 +72,17 @@ if ($nom && $code ) {
             </div>
           </div>
           <div class="col s12 m6">
-            <div class="card">
+            <div class="card #f44336 red">
               <div class="card-image">
                 <img src="img/allison.png">
                 <span class="card-title">Lista B</span>
               </div>
               <div class="card-content">
-                <p>
-                  <div id="mensaje"></div>
-                </p>
+                <h3><a >Allison Zambrano</a></h3>
+                <span>PRESIDENTA</span>
               </div>
               <div class="card-action">
                 <div class="team-title">
-                  <h3><a >Allison Zambrano</a></h3>
-                  <span>Presidente</span>
-                  <p>. </p>
                   <form action="validar.php" method="POST"  id="votacion_b">
                     <p>
                       <label>
@@ -137,7 +111,7 @@ if ($nom && $code ) {
           $(document).on("ready", function(){
             list_a();
             list_b();
-
+            salir();
           });
             $( '#list_a' ).on( 'click', function() {
               if ($('#list_a').is(':checked') ) {
@@ -156,11 +130,21 @@ if ($nom && $code ) {
                   $('#list_a').attr("disabled", false);
                   $('#send_a').attr("disabled", false);
               }
-            });       
-
-        
+            }); 
+        var salir = function (){ 
+        $( "#salir" ).submit(function( event ) {        
+        var parametros = $(this).serialize();
+           $.ajax({
+              type: "POST",
+              url: "validar.php",
+              data: parametros, 
+          });    
+          event.preventDefault();
+        });    
+        }              
         var list_a = function (){ 
         $( "#votacion_a" ).submit(function( event ) {
+        if ($('#list_a').is(':checked') ) {
         var parametros = $(this).serialize();
        $.ajax({
           type: "POST",
@@ -168,10 +152,12 @@ if ($nom && $code ) {
           data: parametros, 
       });    
        event.preventDefault();
+     }
     });    
     }                
         function list_b(){
         $( "#votacion_b" ).submit(function( event ) {
+          if ($('#list_b').is(':checked') ) {
         var parametros = $(this).serialize();
         $.ajax({
         type: "POST",
@@ -179,6 +165,7 @@ if ($nom && $code ) {
         data: parametros,
         });              
         event.preventDefault();
+      }
         });        
         }
         </script>

@@ -7,8 +7,8 @@
 </head>
 <body>
 <div class="container">
-  <div class="card">
-    <div class="card-content">
+  <div  style="margin-top: 180px;" class="card ">
+    <div class="card-content ">
       <div class="row">
         <div class="col s12 m4 l2">
           <img class="activator" src="img/logo_edu.png" width="80">
